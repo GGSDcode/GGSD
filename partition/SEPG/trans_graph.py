@@ -23,7 +23,6 @@ def trans_to_tree(adj, k=2):
 
 
 def update_depth(tree):
-    # set leaf depth
     wait_update = [k for k, v in tree.items() if v.children is None]
     while wait_update:
         for nid in wait_update:
