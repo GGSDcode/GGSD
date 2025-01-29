@@ -9,6 +9,7 @@ def get_id():
     while True:
         yield i
         i += 1
+        
 def graph_parse(adj_matrix):
     g_num_nodes = adj_matrix.shape[0]
     adj_table = {}
