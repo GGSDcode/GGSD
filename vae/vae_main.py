@@ -33,12 +33,12 @@ def main(args):
     data = data.to(device)
     train_loader, val_loader, test_loader = get_dataloaders(data, batch_size=args.batch_size)
     
-    ckpt_dir = f'{args.ckpt_dir}/{dataname}'
-    os.makedirs(ckpt_dir, exist_ok=True)  
+    weight_dir = f'{args.weight_dir}/{dataname}'
+    os.makedirs(weight_dir, exist_ok=True)  
 
-    model_save_path = os.path.join(ckpt_dir, 'model.pt')
-    encoder_save_path = os.path.join(ckpt_dir, 'encoder.pt')
-    decoder_save_path = os.path.join(ckpt_dir, 'decoder.pt')
+    model_save_path = os.path.join(weight_dir, 'model.pt')
+    encoder_save_path = os.path.join(weight_dir, 'encoder.pt')
+    decoder_save_path = os.path.join(weight_dir, 'decoder.pt')
 
     input_dim = data.x.shape[1] + one_hot_encode(data.y, data.y.max().item() + 1).shape[1]
     latent_dim = args.latent_dim
