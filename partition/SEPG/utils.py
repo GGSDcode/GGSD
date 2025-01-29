@@ -119,7 +119,7 @@ class PartitionTreeNode():
         self.vol = vol
         self.g = g
         self.merged = False
-        self.child_h = child_h #不包括该节点的子树高度
+        self.child_h = child_h
         self.child_cut = child_cut
 
     def __str__(self):
@@ -506,22 +506,3 @@ def load_graph(dname):
             g_list.append({'G': g, 'label': l})
     print("# data: %d\tlabel:%s" % (len(g_list), len(label_dict)))
     return g_list
-
-
-if __name__ == "__main__":
-    undirected_adj = [[0, 3, 5, 8, 0], [3, 0, 6, 4, 11],
-                      [5, 6, 0, 2, 0], [8, 4, 2, 0, 10],
-                      [0, 11, 0, 10, 0]]
-
-    undirected_adj = [[0, 1, 1, 0, 0, 0, 0],
-                      [1, 0, 1, 0, 0, 0, 0],
-                      [1, 1, 0, 1, 0, 0, 0],
-                      [0, 0, 1, 0, 1, 0, 0],
-                      [0, 0, 0, 1, 0, 1, 1],
-                      [0, 0, 0, 0, 1, 0, 1],
-                      [0, 0, 0, 0, 1, 1, 0]]
-    undirected_adj = np.array(undirected_adj)
-    y = PartitionTree(adj_matrix=undirected_adj)
-    x = y.build_coding_tree(2)
-    for k, v in y.tree_node.items():
-        print(k, v.__dict__)
