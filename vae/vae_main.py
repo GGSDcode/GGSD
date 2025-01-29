@@ -167,7 +167,7 @@ def main(args):
     latent_features = torch.cat(latent_features, dim=0)
     print(f"Latent features shape: {latent_features.shape}")
     print(f"latent features: ", latent_features)
-    np.save(f'{ckpt_dir}/train_z.npy', latent_features)
+    np.save(f'{weight_dir}/latent.npy', latent_features)
 
     print('Successfully save pretrained embeddings!')
 
