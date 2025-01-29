@@ -17,7 +17,7 @@ networkx
 ```
 
 ## Dataset Download
-You can find Cora, CiteSeer and PubMed dataset in the following url. Download the graph dataset files.
+You can find Cora, CiteSeer and PubMed dataset in the following url. Please download the graph dataset files.
 https://github.com/tkipf/gcn/tree/master/gcn/data
 
 ## 1. Graph Dataset Preprocessing
