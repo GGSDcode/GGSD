@@ -142,5 +142,4 @@ if __name__ == '__main__':
     discon_datasets = ['PROTEINS', 'NCI1', 'DD']
     conn_datasets = ['IMDB-BINARY', 'IMDB-MULTI', 'COLLAB', 'MUTAG']
     for d in conn_datasets + discon_datasets:
-    # for d in discon_datasets:
         struct_tree(d)
