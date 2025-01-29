@@ -1,6 +1,6 @@
 # GGSD
 
-## Environment requirement
+## Environment requirements
 ```
 numpy
 pandas
