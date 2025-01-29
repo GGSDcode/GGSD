@@ -5,12 +5,12 @@ import numba as nb
 import numpy as np
 import networkx as nx
 
-
 def get_id():
     i = 0
     while True:
         yield i
         i += 1
+
 def graph_parse(adj_matrix):
     g_num_nodes = adj_matrix.shape[0]
     adj_table = {}
