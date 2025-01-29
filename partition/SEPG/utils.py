@@ -234,7 +234,7 @@ class PartitionTree():
             self.adj_table[new_id] = self.adj_table[id1].union(self.adj_table[id2])
             for i in self.adj_table[new_id]:
                 self.adj_table[i].add(new_id)
-            #compress delta
+            
             if nodes_dict[id1].child_h > 0:
                 heapq.heappush(cmp_heap,[CompressDelta(nodes_dict[id1],nodes_dict[new_id]),id1,new_id])
             if nodes_dict[id2].child_h > 0:
@@ -252,8 +252,6 @@ class PartitionTree():
         root = new_id
 
         if unmerged_count > 1:
-            #combine solitary node
-            # print('processing solitary node')
             assert len(min_heap) == 0
             unmerged_nodes = {i for i, j in nodes_dict.items() if not j.merged}
             new_child_h = max([nodes_dict[i].child_h for i in unmerged_nodes]) + 1
@@ -432,21 +430,12 @@ class PartitionTree():
                     raise ValueError
 
                 if leaf_up_delta < root_down_delta:
-                    # print('root down')
-                    # root down update and recompute root down delta
                     flag = 2
                     self.root_down_update(new_id,root_down_dict)
 
                 else:
-                    # leaf up update
-                    # print('leave up')
                     flag = 1
-                    # print(self.tree_node[self.root_id].child_h)
                     self.leaf_up_update(id_mapping,leaf_up_dict)
-                    # print(self.tree_node[self.root_id].child_h)
-
-
-                    # update root down leave nodes' children
                     if root_down_delta != 0:
                         for root_down_id, root_down_node in root_down_dict.items():
                             if root_down_node.child_h == 0:
@@ -480,7 +469,6 @@ def load_graph(dname):
                 tmp = int(row[1]) + 2
                 g.add_node(j, tag=row[0])
                 if tmp == len(row):
-                    # no node attributes
                     row = [int(w) for w in row]
                     attr = None
                 else:
